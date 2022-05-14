@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faHeart } from '@fortawesome/free-solid-svg-icons'
-import { Transition, GroupedTransition } from '@mantine/core';
+import { Transition } from '@mantine/core';
 import { image_search } from 'duckduckgo-images-api';
 import Image from 'next/image';
 
