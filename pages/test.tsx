@@ -3,21 +3,14 @@ import {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { Transition, GroupedTransition } from '@mantine/core';
-import axios from "axios";
+import { image_search } from 'duckduckgo-images-api';
 import Image from 'next/image';
 
 const Test: NextPage = ()=>{
     const [pics, setPics] = useState([])
-    function getImages(query:string){
-        if (!query) query="Fashion"
-        query = query.replace(/ /g, "+")
-        axios.request({
-            url: `https://duckduckgo.com/?q=Street+Fashion`,
-            method: 'GET'
-        }).then(res => {
-            
-            console.log(res)
-        })
+    function getImages(search:string){
+        if (!search) search="Fashion"
+        image_search({query:search, moderate:true}).then(results=>console.log(results))
     }
     useEffect(()=>{
         getImages("Street Fashion")
